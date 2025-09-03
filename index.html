@@ -54,7 +54,39 @@
       <img src="https://via.placeholder.com/400" alt="Gallery item" class="rounded-lg shadow">
     </div>
   </section>
+  <!-- Language Selector -->
+  <div class="flex justify-center my-8">
+    <button id="lang-en" class="mx-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition">English</button>
+    <button id="lang-he" class="mx-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition">עברית</button>
+    <button id="lang-ar" class="mx-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition">العربية</button>
+  </div>
+  <script src="translations.js"></script>
+  <script>
+    function setLanguage(lang) {
+      if (!window.translations || !window.translations[lang]) return;
+      const t = window.translations[lang];
+      document.querySelector('h1').textContent = t.title;
+      document.querySelector('.hero p').textContent = t.tagline;
+      document.querySelector('.hero a').textContent = t.contactBtn;
+      document.querySelector('.about h2').textContent = t.aboutTitle;
+      document.querySelector('.about p').textContent = t.aboutText;
+      document.querySelector('.services h2').textContent = t.servicesTitle;
+      document.querySelectorAll('.services h3')[0].textContent = t.service1Title;
+      document.querySelectorAll('.services p')[0].textContent = t.service1Desc;
+      document.querySelectorAll('.services h3')[1].textContent = t.service2Title;
+      document.querySelectorAll('.services p')[1].textContent = t.service2Desc;
+      document.querySelectorAll('.services h3')[2].textContent = t.service3Title;
+      document.querySelectorAll('.services p')[2].textContent = t.service3Desc;
+      document.querySelector('.gallery h2').textContent = t.galleryTitle;
+      document.querySelector('#contact h2').textContent = t.contactTitle;
+      document.querySelector('#contact a').textContent = t.whatsappBtn;
+      document.querySelector('footer p').textContent = t.footer;
+    }
 
+    document.getElementById('lang-en').onclick = () => setLanguage('en');
+    document.getElementById('lang-he').onclick = () => setLanguage('he');
+    document.getElementById('lang-ar').onclick = () => setLanguage('ar');
+  </script>
   
   <section id="contact" class="bg-blue-600 text-white py-16">
   <div class="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-8">
